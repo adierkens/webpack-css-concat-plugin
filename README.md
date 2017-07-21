@@ -1,4 +1,4 @@
-# webpack-css-concat-plugin
+# webpack-css-concat-plugin [![Build Status](https://travis-ci.org/adierkens/webpack-css-concat-plugin.svg?branch=master)](https://travis-ci.org/adierkens/webpack-css-concat-plugin) [![npm version](https://badge.fury.io/js/webpack-css-concat-plugin.svg)](https://badge.fury.io/js/webpack-css-concat-plugin)
 A webpack plugin to concat all css files in your bundle (and any dependent ones)
 
 ## Usage
