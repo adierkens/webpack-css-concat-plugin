@@ -42,7 +42,7 @@ export default class WebpackCssConcatPlugin {
       const cssAssets = _.values(_.pickBy(compilation.assets, (value, fName) => {
         const isCss = path.extname(fName) === '.css';
         if (isCss && !this.config.filename) {
-          this.config.filename = `${path.basename(fName, '.css')}.combined.css`
+          this.config.filename = `${path.basename(fName, '.css')}.combined.css`;
         }
         return isCss;
       }));
