@@ -1,0 +1,92 @@
+{
+  "name": "webpack-css-concat-plugin",
+  "version": "0.0.0",
+  "description": "A webpack plugin to concat all css files in your bundle (and any dependent ones)",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "babel -d dist src --ignore /'__tests__'/",
+    "test": "cross-env NODE_ENV=test nyc ava",
+    "posttest": "npm run lint",
+    "lint": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adierkens/webpack-css-concat-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "loader",
+    "inject"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "author": "Adam Dierkens <adam@dierkens.com>",
+  "license": "Beerware",
+  "bugs": {
+    "url": "https://github.com/adierkens/webpack-css-concat-plugin/issues"
+  },
+  "homepage": "https://github.com/adierkens/webpack-css-concat-plugin#readme",
+  "dependencies": {
+    "find-package": "~1.0.0",
+    "loader-utils": "~1.1.0",
+    "lodash": "~4.17.4",
+    "webpack-sources": "~1.0.1"
+  },
+  "babel": {
+    "plugins": [
+      "transform-runtime"
+    ],
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": 4,
+            "uglify": true
+          }
+        }
+      ]
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "source": [
+      "**/*.js",
+      "!__tests__/**/*"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html",
+      "cobertura"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "xo": {
+    "space": true
+  },
+  "devDependencies": {
+    "ava": "~0.21.0",
+    "babel-cli": "~6.24.1",
+    "babel-plugin-istanbul": "~4.1.4",
+    "babel-plugin-transform-runtime": "~6.23.0",
+    "babel-preset-env": "~1.6.0",
+    "babel-require": "~1.0.1",
+    "cross-env": "~5.0.1",
+    "nyc": "~11.0.3",
+    "xo": "~0.18.2"
+  }
+}
